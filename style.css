@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} 
+
+.time-show-wrap span{
+ font-size: 32px;
+}
+.display-box{
+    width: 400px;
+}
+#lastTimeBox{
+    display: none;
+}
