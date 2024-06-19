@@ -6,8 +6,8 @@ const LapBtn = document.getElementById('LapBtn');
 const hourElem = document.getElementById('hour');
 const minuteElem = document.getElementById('minute');
 const secondElem = document.getElementById('second');
-const lastTimeBoxElem = document.getElementById('lastTimeBox');
-const lastTimeListElem = document.getElementById('lastTimeListEl');
+const lapTimeBoxElem = document.getElementById('lapTimeBox');
+const lapTimeListElem = document.getElementById('lapTimeListEl');
 
 // all static variables 
 let hour = 0;
@@ -57,7 +57,7 @@ function resetTimeFunc() {
     minute = 0;
     second = 0;
     lastTime = []
-    lastTimeBoxElem.style.display = 'none';
+    lapTimeBoxElem.style.display = 'none';
     UpdateDisplayedTime()
 }
 
@@ -70,10 +70,11 @@ function UpdateDisplayedTime() {
 }
 
 
+// teke lap function 
 function LapTimeFunc() {
     if (hour || minute || second) {
-        lastTimeListElem.innerHTML = ''
-        lastTimeBoxElem.style.display = 'block';
+        lapTimeListElem.innerHTML = ''
+        lapTimeBoxElem.style.display = 'block';
         if(lastTime.length == 5){
             lastTime.splice(4, 1)
             lastTime.unshift({ hour, minute, second })
@@ -85,7 +86,7 @@ function LapTimeFunc() {
         lastTime.forEach((timeValue) => {
             const listElem = document.createElement('li')
             listElem.textContent = `${timeValue.hour < 10 ? '0' + timeValue.hour : timeValue.hour}hr : ${timeValue.minute < 10 ? '0' + timeValue.minute : timeValue.minute}min : ${timeValue.second < 10 ? '0' + timeValue.second : timeValue.second}sec`
-            lastTimeListElem.appendChild(listElem)
+            lapTimeListElem.appendChild(listElem)
         })
     }
 
